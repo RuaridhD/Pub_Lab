@@ -88,5 +88,10 @@ def test_add_food
   assert_equal([@food1, @food2, @food3, @food4], @pub.get_food)
 end
 
+def test_sell_food
+  @pub.sell_food(@food2, @customer2)
+  assert_equal(103, @pub.till_balance)
+end
+
 
 end

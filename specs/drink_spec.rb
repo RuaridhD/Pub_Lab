@@ -9,9 +9,9 @@ require_relative("../food.rb")
 class DrinkTest < MiniTest::Test
 
 def setup()
-  @drink1 = Drink.new("Whisky", 3.00, 3)
-  @drink2 = Drink.new("Beer", 3.50, 1)
-  @drink3 = Drink.new("Wine", 4.00, 2)
+  @drink1 = Drink.new("Whisky", 3.00, 30)
+  @drink2 = Drink.new("Beer", 3.50, 10)
+  @drink3 = Drink.new("Wine", 4.00, 20)
 end
 
 def test_name()

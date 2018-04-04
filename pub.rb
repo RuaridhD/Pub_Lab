@@ -50,4 +50,10 @@ class Pub
     end
   end
 
+  def sell_food(food, customer)
+    @till_balance += food.price
+    customer.buy_food(food)
+  end
+
+
 end
