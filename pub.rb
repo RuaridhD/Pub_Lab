@@ -51,8 +51,12 @@ class Pub
   end
 
   def sell_food(food, customer)
-    @till_balance += food.price
-    customer.buy_food(food)
+    if customer.wallet >= food.price
+      @till_balance += food.price
+      customer.buy_food(food)
+    else
+      return "You can't buy food"
+    end
   end
 
 

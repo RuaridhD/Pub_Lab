@@ -64,5 +64,9 @@ def test_drunk_level__after_food
   assert_equal(8, @customer2.drunk_level)
 end
 
+def test_drunk_level__after_food_while_sober
+  @customer2.buy_food(@food2)
+  assert_equal(0, @customer2.drunk_level)
+end
 
 end

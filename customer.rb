@@ -27,6 +27,9 @@ class Customer
   def buy_food(food)
     @wallet -= food.price
     @drunk_level -= food.rejuvenation_level
+    if @drunk_level < 0
+      @drunk_level = 0
+    end
   end
 
   def get_age

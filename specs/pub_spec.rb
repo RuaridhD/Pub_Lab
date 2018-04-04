@@ -93,5 +93,10 @@ def test_sell_food
   assert_equal(103, @pub.till_balance)
 end
 
+def test_sell_food__No_money
+  result = @pub.sell_food(@food1, @customer3)
+  assert_equal("You can't buy food", result)
+end
+
 
 end
