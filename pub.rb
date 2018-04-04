@@ -14,5 +14,13 @@ def till_balance()
   return @till_balance
 end
 
+def get_drinks
+return @drinks
+end
+
+def add_drink(drink1)
+@drinks.push(drink1)
+end
+
 
 end
