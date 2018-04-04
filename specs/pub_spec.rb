@@ -16,6 +16,8 @@ def setup
   @pub.add_drink(@drink1)
   @pub.add_drink(@drink2)
   @pub.add_drink(@drink3)
+  @customer1 = Customer.new("Ruaridh", 50.00, 26)
+  @customer2 = Customer.new("Daniel", 30.00, 23)
   @customer3 = Customer.new("Connor", 0.00, 25)
   @customer4 = Customer.new("Child", 1000.00, 14)
 end
@@ -38,7 +40,7 @@ def test_add_drink
 end
 
 def test_sell_drink
-  @pub.sell_drink(@drink1, @customer3) #connor has no money - write check
+  @pub.sell_drink(@drink1, @customer1) #connor has no money - write check
   assert_equal(103, @pub.till_balance)
 end
 
@@ -52,8 +54,12 @@ end
 
 def test_sell_drink__underage
   result = @pub.sell_drink(@drink1, @customer4)
-  assert_equal("You're too young to drink.", result)
+  assert_equal("You can't buy a drink", result)
 end
 
+def test_sell_drink__No_money
+  result = @pub.sell_drink(@drink1, @customer3)
+  assert_equal("You can't buy a drink", result)
+end
 
 end
