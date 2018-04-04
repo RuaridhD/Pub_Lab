@@ -15,7 +15,6 @@ class FoodTest < MiniTest::Test
     @food4 = Food.new("Chips", 2.00, 1)
   end
 
-
   def test_name
     assert_equal("Falafel", @food2.name)
   end

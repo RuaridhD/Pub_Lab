@@ -15,6 +15,10 @@ class Customer
     return @wallet
   end
 
+  def get_age
+    return @age
+  end
+
   def drunk_level()
     return @drunk_level
   end
@@ -32,7 +36,5 @@ class Customer
     end
   end
 
-  def get_age
-    return @age
-  end
+
 end

@@ -9,7 +9,7 @@ class Drink
   def name()
     return @name
   end
-
+  
   def price()
     return @price
   end
@@ -17,6 +17,5 @@ class Drink
   def alcohol_level()
     return @alcohol_level
   end
-
 
 end

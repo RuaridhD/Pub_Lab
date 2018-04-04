@@ -31,6 +31,14 @@ class Pub
     @food.push(food)
   end
 
+  def check_id(customer)
+    if customer.get_age >= 18
+      return true
+    else
+      return false
+    end
+  end
+
   def sell_drink(drink, customer)
     if (check_id(customer)) && (customer.wallet >= drink.price) && (customer.drunk_level <= 80)
       @till_balance += drink.price
@@ -38,15 +46,6 @@ class Pub
       return "test"
     else
       return "You can't buy a drink"
-    end
-
-  end
-
-  def check_id(customer)
-    if customer.get_age >= 18
-      return true
-    else
-      return false
     end
   end
 
@@ -59,5 +58,4 @@ class Pub
     end
   end
 
-
-end
+end #End of class

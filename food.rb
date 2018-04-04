@@ -6,7 +6,6 @@ class Food
     @rejuvenation_level = rejuvenation_level
   end
 
-
   def name
     return @name
   end
