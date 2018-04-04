@@ -23,7 +23,7 @@ class DrinkTest < MiniTest::Test
   end
 
   def test_alcohol_level
-    assert_equal(3, @drink1.alcohol_level)
+    assert_equal(30, @drink1.alcohol_level)
   end
-  
+
 end
