@@ -18,9 +18,12 @@ def get_drinks
 return @drinks
 end
 
-def add_drink(drink1)
-@drinks.push(drink1)
+def add_drink(drink)
+@drinks.push(drink)
 end
 
+  def sell_drink(drink)
+    @till_balance += drink.price
+  end
 
 end

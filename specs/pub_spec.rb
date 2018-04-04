@@ -35,6 +35,10 @@ def test_add_drink
   assert_equal([@drink1, @drink2, @drink3, @drink4], @pub.get_drinks)
 end
 
+def test_sell_drink
+  @pub.sell_drink(@drink1)
+  assert_equal(103, @pub.till_balance)
+end
 
 
 end
