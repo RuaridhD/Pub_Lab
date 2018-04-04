@@ -12,6 +12,10 @@ def setup
   @drink1 = Drink.new("Whisky", 3.00)
   @drink2 = Drink.new("Beer", 3.50)
   @drink3 = Drink.new("Wine", 4.00)
+  @drink4 = Drink.new("Gin", 4.00)
+  @pub.add_drink(@drink1)
+  @pub.add_drink(@drink2)
+  @pub.add_drink(@drink3)
 end
 
 def test_name()
@@ -23,12 +27,12 @@ def test_till_balance
 end
 
 def test_get_drinks
-  assert_equal([], @pub.get_drinks)
+  assert_equal([@drink1, @drink2, @drink3], @pub.get_drinks)
 end
 
 def test_add_drink
-  @pub.add_drink(@drink1)
-  assert_equal([@drink1], @pub.get_drinks)
+  @pub.add_drink(@drink4)
+  assert_equal([@drink1, @drink2, @drink3, @drink4], @pub.get_drinks)
 end
 
 
