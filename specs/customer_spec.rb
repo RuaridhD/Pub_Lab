@@ -6,5 +6,5 @@ require_relative("../customer.rb")
 require_relative("../drink.rb")
 
 class CustomerTest < MiniTest::Test
-
-end 
+ 
+end
