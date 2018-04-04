@@ -4,15 +4,16 @@ require("minitest/rg")
 require_relative("../pub.rb")
 require_relative("../customer.rb")
 require_relative("../drink.rb")
+require_relative("../food.rb")
 
 class PubTest < MiniTest::Test
 
 def setup
   @pub = Pub.new("The White Horse", 100)
-  @drink1 = Drink.new("Whisky", 3.00, 3)
-  @drink2 = Drink.new("Beer", 3.50, 1)
-  @drink3 = Drink.new("Wine", 4.00, 2)
-  @drink4 = Drink.new("Gin", 4.00, 3)
+  @drink1 = Drink.new("Whisky", 3.00, 30)
+  @drink2 = Drink.new("Beer", 3.50, 10)
+  @drink3 = Drink.new("Wine", 4.00, 20)
+  @drink4 = Drink.new("Gin", 4.00, 30)
   @pub.add_drink(@drink1)
   @pub.add_drink(@drink2)
   @pub.add_drink(@drink3)
@@ -20,6 +21,13 @@ def setup
   @customer2 = Customer.new("Daniel", 30.00, 23)
   @customer3 = Customer.new("Connor", 0.00, 25)
   @customer4 = Customer.new("Child", 1000.00, 14)
+  @food1 = Food.new("Kebab", 4.00, 4)
+  @food2 = Food.new("Falafel", 3.00, 2)
+  @food3 = Food.new("Pizza", 6.00, 4)
+  @food4 = Food.new("Chips", 2.00, 1)
+  @pub.add_food(@food1)
+  @pub.add_food(@food2)
+  @pub.add_food(@food3)
 end
 
 def test_name()
@@ -68,7 +76,17 @@ def test_sell_drink__Too_drunk
   @pub.sell_drink(@drink1, @customer1)
   result = @pub.sell_drink(@drink1, @customer1)
   assert_equal("You can't buy a drink", result)
-
 end
+
+def test_get_food
+  assert_equal([@food1, @food2, @food3], @pub.get_food)
+end
+
+
+def test_add_food
+  @pub.add_food(@food4)
+  assert_equal([@food1, @food2, @food3, @food4], @pub.get_food)
+end
+
 
 end
