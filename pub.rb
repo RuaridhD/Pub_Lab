@@ -43,7 +43,6 @@ class Pub
     if (check_id(customer)) && (customer.wallet >= drink.price) && (customer.drunk_level <= 80)
       @till_balance += drink.price
       customer.buy_a_drink(drink)
-      return "test"
     else
       return "You can't buy a drink"
     end
