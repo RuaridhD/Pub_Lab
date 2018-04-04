@@ -1,8 +1,9 @@
 class Customer
 
-  def initialize(name, wallet)
+  def initialize(name, wallet, age)
     @name = name
     @wallet = wallet
+    @age = age
   end
 
   def name()
@@ -13,10 +14,12 @@ class Customer
     return @wallet
   end
 
-def buy_a_drink(drink, pub)
-  @wallet -= drink.price
-  pub.sell_drink(drink)
-end
+  def buy_a_drink(drink, pub)
+    @wallet -= drink.price
+    pub.sell_drink(drink)
+  end
 
-
+  def get_age
+    return @age
+  end
 end

@@ -16,6 +16,8 @@ def setup
   @pub.add_drink(@drink1)
   @pub.add_drink(@drink2)
   @pub.add_drink(@drink3)
+  @customer3 = Customer.new("Connor", 0.00, 25)
+  @customer4 = Customer.new("Child", 1000.00, 14)
 end
 
 def test_name()
@@ -39,6 +41,15 @@ def test_sell_drink
   @pub.sell_drink(@drink1)
   assert_equal(103, @pub.till_balance)
 end
+
+def test_check_id__underage
+  assert_equal(false, @pub.check_id(@customer4))
+end
+
+def test_check_id__of_age
+  assert_equal(true, @pub.check_id(@customer3))
+end
+
 
 
 end
