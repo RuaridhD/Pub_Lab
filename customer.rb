@@ -4,6 +4,7 @@ class Customer
     @name = name
     @wallet = wallet
     @age = age
+    @drunk_level = 0
   end
 
   def name()
@@ -14,8 +15,13 @@ class Customer
     return @wallet
   end
 
+  def drunk_level()
+    return @drunk_level
+  end
+
   def buy_a_drink(drink)
     @wallet -= drink.price
+    @drunk_level += drink.alcohol_level
   end
 
   def get_age

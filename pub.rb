@@ -23,9 +23,10 @@ class Pub
   end
 
   def sell_drink(drink, customer)
-    if (check_id(customer) == true) && (customer.wallet >= drink.price)
+    if (check_id(customer)) && (customer.wallet >= drink.price) && (customer.drunk_level <= 8)
       @till_balance += drink.price
       customer.buy_a_drink(drink)
+      return "test"
     else
       return "You can't buy a drink"
     end

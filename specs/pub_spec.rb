@@ -9,10 +9,10 @@ class PubTest < MiniTest::Test
 
 def setup
   @pub = Pub.new("The White Horse", 100)
-  @drink1 = Drink.new("Whisky", 3.00)
-  @drink2 = Drink.new("Beer", 3.50)
-  @drink3 = Drink.new("Wine", 4.00)
-  @drink4 = Drink.new("Gin", 4.00)
+  @drink1 = Drink.new("Whisky", 3.00, 3)
+  @drink2 = Drink.new("Beer", 3.50, 1)
+  @drink3 = Drink.new("Wine", 4.00, 2)
+  @drink4 = Drink.new("Gin", 4.00, 3)
   @pub.add_drink(@drink1)
   @pub.add_drink(@drink2)
   @pub.add_drink(@drink3)
@@ -40,7 +40,7 @@ def test_add_drink
 end
 
 def test_sell_drink
-  @pub.sell_drink(@drink1, @customer1) #connor has no money - write check
+  @pub.sell_drink(@drink1, @customer1)
   assert_equal(103, @pub.till_balance)
 end
 
@@ -60,6 +60,15 @@ end
 def test_sell_drink__No_money
   result = @pub.sell_drink(@drink1, @customer3)
   assert_equal("You can't buy a drink", result)
+end
+
+def test_sell_drink__Too_drunk
+  @pub.sell_drink(@drink1, @customer1)
+  @pub.sell_drink(@drink1, @customer1)
+  @pub.sell_drink(@drink1, @customer1)
+  result = @pub.sell_drink(@drink1, @customer1)
+  assert_equal("You can't buy a drink", result)
+
 end
 
 end
