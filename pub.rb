@@ -22,8 +22,14 @@ class Pub
     @drinks.push(drink)
   end
 
-  def sell_drink(drink)
-    @till_balance += drink.price
+  def sell_drink(drink, customer)
+    if check_id(customer) == true
+      @till_balance += drink.price
+      customer.buy_a_drink(drink)
+    else
+      return "You're too young to drink."
+    end
+
   end
 
   def check_id(customer)

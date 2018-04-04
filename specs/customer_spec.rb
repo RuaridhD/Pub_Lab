@@ -31,9 +31,8 @@ def test_wallet()
 end
 
 def test_buy_a_drink
-  @customer2.buy_a_drink(@drink1, @pub)
+  @customer2.buy_a_drink(@drink1)
   assert_equal(27.00, @customer2.wallet)
-  assert_equal(103, @pub.till_balance)
 end
 
 def test_get_age

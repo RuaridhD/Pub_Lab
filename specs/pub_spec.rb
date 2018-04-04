@@ -38,7 +38,7 @@ def test_add_drink
 end
 
 def test_sell_drink
-  @pub.sell_drink(@drink1)
+  @pub.sell_drink(@drink1, @customer3) #connor has no money - write check
   assert_equal(103, @pub.till_balance)
 end
 
@@ -50,6 +50,10 @@ def test_check_id__of_age
   assert_equal(true, @pub.check_id(@customer3))
 end
 
+def test_sell_drink__underage
+  result = @pub.sell_drink(@drink1, @customer4)
+  assert_equal("You're too young to drink.", result)
+end
 
 
 end
